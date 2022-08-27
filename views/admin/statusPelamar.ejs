@@ -1,0 +1,61 @@
+<div class="col-md-8">
+    <div class="card card-primary card-outline">
+      <div class="card-body">
+        <div class="float-right">
+              <button class="btn btn-primary text-center" onclick="window.history.back()" ><i class="fa fa-arrow-left "></i> back
+              </button>
+        </div>
+        <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+              <th style="width: 10px">#</th>
+              <th>Seleksi Berkas</th>
+              <th>Seleksi Soal</th>
+              <th>Seleksi Wawancara</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% data.forEach(row => {
+                let sBerkas = row.seleksi_berkas == 1 ? 'Belum Di Tentukan' : row.seleksi_berkas == 2 ? 'Lulus' : row.seleksi_berkas == 3 ? 'Di tolak' : ''; 
+                let sSoal = row.seleksi_soal == 1 ? 'Belum Di Tentukan' : row.seleksi_soal == 2 ? 'Lulus' : row.seleksi_soal == 3 ? 'Di tolak':'';    
+                let sWawancara = row.seleksi_wawancara == 1 ? 'Belum Di Tentukan' : row.seleksi_wawancara == 2 ? 'Lulus' : row.seleksi_wawancara == 3 ? 'Di tolak':''; 
+            %>
+              <tr>
+                <td>1.</td>
+                <td>
+                    <button class="berkas<%= row.seleksi_berkas %> btn">
+                        <%= sBerkas %>
+                    </button>
+                </td>
+                <td >
+                    <button class="berkas<%= row.seleksi_soal %> btn" >
+                        <%= sSoal %>
+                    </button>
+                </td>
+                <td>
+                    <button class="berkas<%= row.seleksi_wawancara %> btn" >
+                        <%= sWawancara %>
+                    </button>
+                </td>
+              </tr>
+            <%  }); %>
+          </tbody>
+      </table>
+    
+    </div>
+  </div>
+  </div>
+
+<script>
+    document.querySelectorAll('.btn').forEach(index=>{
+      console.log(index.classList[0])
+      if(index.classList[0] == 'berkas1'){
+        index.classList.add('btn-warning');
+      }else if(index.classList[0] == 'berkas2'){
+        index.classList.add('btn-success');
+      }else if(index.classList[0] == 'berkas3'){
+        index.classList.add('btn-danger');
+      }
+    });    
+
+</script>

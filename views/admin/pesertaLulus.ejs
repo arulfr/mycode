@@ -1,0 +1,83 @@
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Data Pelamar Lulus Berkas dan Seleksi Soal</h3>
+            
+    </div>
+    <div class="card-body">
+       <form action="/admin/jadwal_wawancara" method="post">
+           <div class="row kirimJadwal hidden">
+                <div class="col-3">
+                    <input type="date" class="form-control" name="tgl_wawancara" placeholder="Tanggal Wawancara" id="">
+                    <!-- <div class="input-group date" id="reservationdatetime" data-target-input="nearest" >
+                        <input type="text" name="tgl_wawancara" class="form-control datetimepicker-input" placeholder="tgl dan waktu" data-target="#reservationdatetime"/>
+                        <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
+                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="col-3">
+                    <input type="text" class="form-control" name="jam_wawancara" placeholder="Jam Wawancara" id="">
+                </div>
+                <div class="col-3">
+                    <input type="text" class="form-control" name="lokasi" placeholder="Lokasi Wawancara" id="">
+                </div>
+                <div class="col-3">
+                    <button type="submit" class="btn btn-primary" style="margin-bottom:10px;"><i class="fa fa-send"></i> Kirim Jadwal Wawancara</button>
+                </div>
+           </div>
+           <div class="openKirimJadwal">
+            <button type="button" class="openJadwal btn btn-primary" style="margin-bottom:10px;"><i class="fa fa-send"></i>Kirim Jadwal</button>
+           </div>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th style="width: 10px">#</th>
+                <th class="kirimJadwal hidden">#</th>
+                <th>Foto</th>
+                <th>Nama Lengkap</th>
+                <th>Alamat</th>
+                <th>Telepon</th>
+                <th>Pendidikan Terakhir</th>
+            </tr>
+            </thead>
+            <tbody>
+                <% let no=1; data.forEach(row => { %>
+                    <tr>
+                        <td><%= no %></td>
+                        <td class="kirimJadwal hidden"><input type="checkbox" name="id_pelamar[]" value="<%= row.id_pelamar %>" class="checkbox" /></td>
+                        <td>
+                            <div class="text-center">
+                                <img src="<%= row.biodata[0].foto %>" height="80px" alt="Foto" />
+                            </div>
+                        </td>
+                        <td><%= row.biodata[0].nama_lengkap %></td>
+                        <td><%= row.biodata[0].alamat %></td>
+                        <td><%= row.biodata[0].telepon %></td>
+                        <td><%= row.biodata[0].pendidikan %></td>
+                    </tr>
+                    <% no++ }); %>
+                    </tbody>
+                </table>
+        </form>
+    </div>
+</div>
+<script>
+    const openJadwal = () =>{
+        document.querySelector('.openJadwal').addEventListener('click',()=>{
+            document.querySelectorAll('.kirimJadwal').forEach(index=>{
+                index.classList.remove('hidden');
+            })
+            document.querySelector('.openKirimJadwal').classList.add('hidden');
+        })
+    }
+    openJadwal();
+</script>
+<style>
+    .checkbox{
+        height: 20px;
+        width: 20px;
+    }
+
+    .hidden{
+        display: none;
+    }
+</style>

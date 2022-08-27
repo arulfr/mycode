@@ -1,0 +1,44 @@
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Jadwal Wawancara</h3>
+            
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th style="width: 10px">#</th>
+                <th>Foto</th>
+                <th>Nama Lengkap</th>
+                <th>Alamat</th>
+                <th>Telepon</th>
+                <th>Pendidikan Terakhir</th>
+                <th>Tgl Wawancara</th>
+                <th>Jam Wawancara</th>
+                <th>Lokasi Wawancara</th>
+            </tr>
+            </thead>
+            <tbody>
+                <% let no=1; data.forEach(row => {  
+                    let jadwal = JSON.stringify(row.tgl_wawancara).slice(1,11);
+                %>
+                    <tr>
+                        <td><%= no %></td>
+                        <td>
+                            <div class="text-center">
+                                <img src="<%= row.biodata[0].foto %>" height="80px" alt="Foto" />
+                            </div>
+                        </td>
+                        
+                        <td><%= row.biodata[0].nama_lengkap %></td>
+                        <td><%= row.biodata[0].alamat %></td>
+                        <td><%= row.biodata[0].telepon %></td>
+                        <td><%= row.biodata[0].pendidikan %></td>
+                        <td><%= jadwal.split('-').reverse().join('-') %></td>
+                        <td><%= row.jam_wawancara %></td>
+                        <td><%= row.lokasi %></td>
+                    </tr>
+                    <% no++ }); %>
+                    </tbody>
+                </table>
+    </div>
+</div>

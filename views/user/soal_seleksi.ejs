@@ -1,0 +1,49 @@
+<div class="col-lg-8 mx-auto">
+    <% let no = 0; data.forEach(row=>{ %>
+   <form action="/jawabSoal" method="post">
+    <div class="card card-primary card-outline">
+        <div class="card-header">
+          <h5 class="card-title m-0">Soal <%= no+1; %></h5>
+        </div>
+        <div class="card-body">
+          <h6 class="card-title"><%= row.soal %></h6><br>
+         <% if(row.gambar.length > 0){ %>
+            <img src="<%= row.gambar %>" width="200" alt=""><br>
+         <% } %>
+         <div style="margin-top:20px"></div>
+         <input type="hidden" name="id_soal[]" value="<%= row.id_soal %>" id="">
+         <input type="hidden" name="kunci[]" value="<%= row.kunci %>" id="">
+         <span style="margin-right:15px">
+             A . <input type="radio" name="pilihan[]" value="a" id="" style="margin-right: 5px;"><%= row.pil_a %>
+        </span>
+        <span style="margin-right:15px">
+            B . <input type="radio" name="pilihan[]" value="b" id="" style="margin-right: 5px;"/><%= row.pil_b %>
+        </span>
+        <span style="margin-right:15px">
+             C . <input type="radio" name="pilihan[]" value="c" id="" style="margin-right: 5px;"/><%= row.pil_c %>
+        </span>
+        <span style="margin-right:15px">
+            D . <input type="radio" name="pilihan[]" value="d" id="" style="margin-right: 5px;"/><%= row.pil_d %>
+        </span>
+        <% if(row.cek == false){ %>
+            <div class="float-right">
+                <button type="submit" class="btn btn-primary">Simpan Jawaban</button>
+            </div>
+        <% }else{ %>
+            <div class="float-right">
+                <button type="button" class="btn btn-success" onclick="alert('Jawaban sudah Tersimpan')">Sudah Dijawab</button>
+            </div>
+        <% } %> 
+        </div>
+      </div>
+    </form>
+      <% no++; }) %>
+   </div>
+
+    <div class="col-lg-8 mx-auto">
+        <div class="card card-primary card-outline">
+            <div class="card-header mx-auto">
+               <a href="/proses_rekrutmen"><button type="button" class="btn btn-primary">Selesai Menjawab Soal</button></a> 
+            </div>
+        </div>
+    </div>

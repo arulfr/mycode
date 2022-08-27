@@ -1,0 +1,89 @@
+       <!-- SELECT2 EXAMPLE -->
+       <div class="card card-default">
+        <div class="card-header">
+          <h3 class="card-title">Upload Berkas</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <!-- /.card-header -->
+          <div class="card-body">
+            <form action="/uploadBerkas" id="formUpload" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="exampleInputFile">Surat Lamaran :</label>
+                        <div class="custom-file">
+                            <input type="file" name="surat_lamaran" class="berkas custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile">Choose file</label>
+                          </div>
+                          <div class="surat_lamaran" style="color:#d64747;"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="exampleInputFile">Ijazah Terakhir :</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                              <input type="file" name="ijazah" class="berkas custom-file-input" id="exampleInputFile">
+                              <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                            </div>
+                        </div>
+                        <div class="ijazah" style="color:#d64747;"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="exampleInputFile">KTP :</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                              <input type="file" name="ktp" class="berkas custom-file-input" id="exampleInputFile">
+                              <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                            </div>
+                        </div>
+                        <div class="ktp" style="color:#d64747;"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="exampleInputFile">lampiran Lainnya :</label>
+                        <div class="input-group">
+                            <div class="custom-file">
+                              <input type="file" name="lampiran" class="berkas custom-file-input" id="exampleInputFile">
+                              <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                            </div>
+                        </div>
+                        <div class="lampiran" style="color:#d64747;"></div>
+                    </div>
+                <button type="button" class="submitButton btn btn-primary btn-block" style="margin-top:15px;">Upload Berkas</button>
+            </div>
+          </form>
+            <!-- /.row -->
+          </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+        </div>
+      </div>
+      <script>
+        document.querySelector('.submitButton').addEventListener('click',()=>{
+          let jml = 0;
+          let konfirm = confirm('Anda Yakin Mengupload Semua File Ini ?');
+          if(konfirm){
+            document.querySelectorAll('.berkas').forEach(index=>{
+                      // let name = index.classList[1]
+                          if(index.value != ''){
+                              jml += 1;
+                          }else{
+                            document.querySelector(`input[name='${index.name}']`).classList.add('is-invalid');
+                            document.querySelector(`.${index.name}`).innerHTML='Isian ini tidak Boleh kosong.'
+                          }
+                        
+                      })
+
+                      if(jml == 4){
+                        document.querySelector('#formUpload').submit();
+                      }
+          } 
+         
+
+        })
+      </script>

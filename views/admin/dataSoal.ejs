@@ -1,0 +1,38 @@
+<div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Data Soal</h3>
+      <div class="float-right">
+          <a href="/admin/input_soal"><button type="button" class="btn btn-primary"><i class="fa fa-plus"></i></button></a>
+      </div>
+    </div>
+  <div class="card-body">
+      <table id="example1" class="table table-bordered table-striped">
+      <thead>
+          <tr>
+            <th style="width: 10px">#</th>
+            <th>Soal</th>
+            <th>Gambar</th>
+            <th>Pil A</th>
+            <th>Pil B</th>
+            <th>Pil C</th>
+            <th>Pil D</th>
+            <th>Kunci</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% let no=1; data.forEach(row => { %>
+          <tr>
+            <td><%= no %></td>
+            <td><%= row.soal %></td>
+            <td><img src="<%= row.gambar %>" width="100" alt=""></td>
+            <td><%= row.pil_a %></td>
+            <td><%= row.pil_b %></td>
+            <td><%= row.pil_c %></td>
+            <td><%= row.pil_d %></td>
+            <td><%= row.kunci %></td>
+        </tr>
+          <% no++ }); %>
+        </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Data Pelamar</h3>
+    </div>
+  <div class="card-body">
+      <table id="example1" class="table table-bordered table-striped">
+      <thead>
+          <tr>
+            <th style="width: 10px">#</th>
+            <th>Foto</th>
+            <th>Nama Lengkap</th>
+            <th>TTL</th>
+            <th>Alamat</th>
+            <th>Telepon</th>
+            <th>Pendidikan Terakhir</th>
+            <th>Tgl Daftar</th>
+            <th>Periksa Berkas</th>
+            <th>Status Pelamar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% let no=1; query.forEach(row => { let newDate = JSON.stringify(new Date(row.created_at)) %>
+          <tr>
+            <td><%= no %></td>
+            <td>
+                <div class="text-center">
+                    <img src="<%= row.foto %>" height="130px" width="100px" alt="Foto" />
+                </div>
+            </td>
+            <td><%= row.nama_lengkap %></td>
+            <td><%= row.tempat_lahir+", "+ row.tgl_lahir.split('-').reverse().join('-') %></td>
+            <td><%= row.alamat %></td>
+            <td><%= row.telepon %></td>
+            <td><%= row.pendidikan %></td>
+            <td><%= newDate.slice(1,11) %></td>
+            <td>
+                <div class="text-center">
+                    <a href="/admin/cekBerkas/<%= row.id_pelamar %>"><img class="profile-user-img img-fluid img-circle" src="/images/cek_berkas.png" height="120px" width="120px" alt="Foto" /></a>
+                </div>
+            </td>
+            <td>
+              <div class="text-center">
+                <a href="/admin/statusPelamar/<%= row.id_pelamar %>"><img class="profile-user-img img-fluid img-circle" src="/images/proses.png" height="120px" width="120px" alt="Foto" /></a>
+              </div>
+            </td>
+          </tr>
+          <% no++ }); %>
+        </tbody>
+    </table>
+  </div>
+</div>

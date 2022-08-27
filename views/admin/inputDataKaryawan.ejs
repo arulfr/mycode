@@ -1,0 +1,91 @@
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Daftar Karyawa Lulus Seleksi</h3>
+    </div>
+    <div class="card-body">
+        <form action="/admin/inputKaryawan" method="post">
+            <div class="row inputKaryawan" style="margin-bottom:10px;">
+                 <div class="col-6" style="display: inline-block;">
+                    <label>Tgl Mulai Kerja : </label>
+                     <input type="date" class="form-control" name="masuk_kerja" placeholder="Tgl Masuk Kerja" id="">
+                 </div>
+                 <div class="col-6">
+                    <label>Status Calon Karyawan : </label>
+                     <select class="form-control" name="status_karyawan" id="selected">
+                         <option value="">-------Pilih Status--------------</option>
+                         <option value="1">Kontrak</option>
+                         <option value="2">Tetap</option>
+                     </select>
+                 </div>
+            </div>
+            <div class="row" style="margin-bottom:10px;">
+                    <div class="col-6 kontrakForm hidden">
+                        <label>Tgl Awal Kontrak : </label>
+                        <input type="date" class="form-control" name="tgl_awal" placeholder="Tgl Awal" id="">
+                    </div>
+                    <div class="col-6 kontrakForm hidden">
+                            <label>Tgl Akhir Kontrak : </label>
+                            <input type="date" class="form-control" name="tgl_akhir" placeholder="Tgl Akhir" id="">
+                    </div>
+                 </div>
+            </div>
+                 <div class="col-6 float-right" style="margin-bottom: 10px;">
+                    <button type="submit" class="btn btn-primary" ><i class="fa fa-send"></i> Input Karyawan Baru </button>
+                </div>
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th style="width: 10px">#</th>
+                <th>Pilih</th>
+                <th>Foto</th>
+                <th>Nama Lengkap</th>
+                <th>Alamat</th>
+                <th>Telepon</th>
+                <th>Pendidikan Terakhir</th>
+            </tr>
+            </thead>
+            <tbody>
+                <% let no=1; data.forEach(row => { if(row.biodata.length > 0){ %>
+                    <tr>
+                        <td><%= no %></td>
+                        <td class="inputKaryawan"><input type="checkbox" name="id_biodata[]" value="<%= row.biodata[0].id_biodata %>" class="checkbox" /></td>
+                        <td>
+                            <div class="text-center">
+                                <img src="<%= row.biodata[0].foto %>" height="80px" alt="Foto" />
+                            </div>
+                        </td>
+                        
+                        <td><%= row.biodata[0].nama_lengkap %></td>
+                        <td><%= row.biodata[0].alamat %></td>
+                        <td><%= row.biodata[0].telepon %></td>
+                        <td><%= row.biodata[0].pendidikan %></td>
+                    </tr>
+                    <% no++ } }); %>
+                    </tbody>
+                </table>
+        </form>
+</div>
+
+<script>
+    document.querySelector('#selected').addEventListener('change',function(){
+        // console.log(this.value);
+        if(this.value == 1){
+            document.querySelectorAll('.kontrakForm').forEach(function(index){
+                index.classList.remove('hidden');
+            })
+        }else{
+            document.querySelectorAll('.kontrakForm').forEach(function(index){
+                index.classList.add('hidden');
+            })
+        }
+    })
+</script>
+<style>
+    .checkbox{
+        height: 20px;
+        width: 20px;
+    }
+
+    .hidden{
+        display: none;
+    }
+</style>

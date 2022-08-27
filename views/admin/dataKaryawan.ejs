@@ -1,0 +1,63 @@
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Daftar Karyawan</h3>
+        <div class="float-right">
+            <a href="/admin/input_data_karyawan"><button type="button" class="btn btn-primary"><i class="fa fa-plus"></i></button></a>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th style="width: 10px">#</th>
+                <th>Foto</th>
+                <th>Nama Lengkap</th>
+                <th>Alamat</th>
+                <th>Telepon</th>
+                <th>Pendidikan Terakhir</th>
+                <th>Status Karyawan</th>
+                <th>Aktif/non Aktif</th>
+                <th>Tgl Kontrak</th>
+                <th>Tgl Kontrak Berakhir</th>
+                <th colspan="2">Opsi</th>
+            </tr>
+            </thead>
+            <tbody>
+                <% let no=1; data.forEach(row => { %>
+                    <tr>
+                        <td><%= no %></td>
+                        <td>
+                            <div class="text-center">
+                                <img src="<%= row.biodata[0].foto %>" height="80px" alt="Foto" />
+                            </div>
+                        </td>
+                        <td><%= row.biodata[0].nama_lengkap %></td>
+                        <td><%= row.biodata[0].alamat %></td>
+                        <td><%= row.biodata[0].telepon %></td>
+                        <td><%= row.biodata[0].pendidikan %></td>
+                        <td><%= row.status_karyawan %></td>
+                        <td><%= row.status_aktif %></td>
+                        <td><%= row.tgl_awal %></td>
+                        <td><%= row.tgl_akhir %></td>
+                        <td>
+                            <div class="text-center">
+                                <a href="/admin/updateKaryawan/<%= row.id_karyawan %>">
+                                  <img class="profile-user-img img-fluid img-circle" src="/images/update.png" height="100px" width="100px" alt="Foto"></a>
+                                  <br> 
+                                  UPDATE
+                            </div>
+                        </td>
+                        <td>
+                            <div class="text-center">
+                                <a href="/admin/deleteKaryawan/<%= row.id_karyawan %>">
+                                  <img class="profile-user-img img-fluid img-circle" src="/images/delete.png" height="100px" width="100px" alt="Foto"></a>
+                                  <br> 
+                                  DELETE
+                            </div>
+                        </td>
+                    </tr>
+                    <% no++ }); %>
+                    </tbody>
+                    </tbody>
+                </table>
+    </div>
+</div>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <img src="../images/kop.jpeg" class="center" alt="">
+    <link href="../assets/css/kop_atas.css" rel="stylesheet" type="text/css" />
+</head>
+    <style type="text/css">
+        .ttd{
+
+            margin-top: 100px;
+            margin-left: 70%;
+            position: absolute;
+            border: 2px solid black;
+            width: 120px;
+
+        }
+
+        .clear{
+            clear: both;
+        }
+
+
+        .ket{
+            margin-top: 95px;
+            margin-left: 73%;
+        }
+        .nama{
+
+            margin-top: 105px;
+            margin-left: 72%;
+
+            }
+
+        table, td, th {  
+              border: 1px solid #ddd;
+              text-align: left;
+            }
+
+            table {
+              border-collapse: collapse;
+              width: 80%;
+            }
+
+            th, td {
+              padding: 10px;
+            }
+
+    </style>
+<body>
+    <script type="text/javascript">
+        window.print();
+    </script>
+     <div id="kop">
+               <!-- <img src="<?= base_url() ?>gambar/kop.jpg" width="60%" height="10%"> -->
+            <div class="garis-kop"> 
+            </div>
+        </div>
+            <% if(laporan=='data_pelamar'){  %>
+                  <h2 align="center"> Laporan Seluruh Data Pelamar </h2>
+                  <p align="center">Dari tanggal <%= date[0]%> sampai tanggal <%= date[1] %> </p>
+                    <table align="center" border="1">
+                    <tr> 
+                        <td>No</td>
+                        <td>Foto</td> 
+                        <td>Nama Lengkap</td>  
+                        <td>TTL</td>
+                        <td>Alamat</td>
+                        <td>Telepon</td>
+                        <td>Pendidikan Terakhir</td>
+                    </tr>
+                    <% let no=1; data.forEach(row => { %>
+                        <tr>
+                          <td><%= no %></td>
+                          <td>
+                              <div class="text-center">
+                                  <img src="<%= row.foto %>" height="130px" width="100px" alt="Foto" />
+                              </div>
+                          </td>
+                          <td><%= row.nama_lengkap %></td>
+                          <td><%= row.tempat_lahir+", "+ row.tgl_lahir.split('-').reverse().join('-') %></td>
+                          <td><%= row.alamat %></td>
+                          <td><%= row.telepon %></td>
+                          <td><%= row.pendidikan %></td>
+                        </tr>
+                        <% no++ }); %>
+                    </table>
+                    <div class="ket">Mengetahui</div>
+                    <div class="ttd"></div>
+                    <div class="nama">Pimpinan</div>
+            <% }else if(laporan == 'lulus_seleksi_berkas'){ %>
+                <h2 align="center"> Laporan Data Pelamar Lulus Seleksi Berkas </h2>
+                <p align="center">Dari tanggal <%= date[0]%> sampai tanggal <%= date[1] %> </p>
+                    <table align="center" border="1">
+                    <tr> 
+                        <td>No</td>
+                        <td>Foto</td> 
+                        <td>Nama Lengkap</td>  
+                        <td>TTL</td>
+                        <td>Alamat</td>
+                        <td>Telepon</td>
+                        <td>Pendidikan Terakhir</td>
+                        <td>Keterangan</td>
+                    </tr>
+                    <% let no=1; data.forEach(row => { row.seleksi_berkas==2 ? row.seleksi_berkas = 'Lulus Seleksi Berkas' : row.seleksi_berkas='-' %>
+                        <tr>
+                          <td><%= no %></td>
+                          <td>
+                              <div class="text-center">
+                                  <img src="<%= row.foto %>" height="130px" width="100px" alt="Foto" />
+                              </div>
+                          </td>
+                          <td><%= row.nama_lengkap %></td>
+                          <td><%= row.tempat_lahir+", "+ row.tgl_lahir.split('-').reverse().join('-') %></td>
+                          <td><%= row.alamat %></td>
+                          <td><%= row.telepon %></td>
+                          <td><%= row.pendidikan %></td>
+                          <td><%= row.seleksi_berkas %></td>
+                        </tr>
+                        <% no++ }); %>
+                    </table>
+                    <div class="ket">Mengetahui</div>
+                    <div class="ttd"></div>
+                    <div class="nama">Pimpinan</div>
+                            <% }else if(laporan == 'lulus_seleksi_berkas'){ %>
+                <h2 align="center"> Laporan Data Pelamar Lulus Seleksi Berkas </h2>
+                <p align="center">Dari tanggal <%= date[0]%> sampai tanggal <%= date[1] %> </p>
+                    <table align="center" border="1">
+                    <tr> 
+                        <td>No</td>
+                        <td>Foto</td> 
+                        <td>Nama Lengkap</td>  
+                        <td>TTL</td>
+                        <td>Alamat</td>
+                        <td>Telepon</td>
+                        <td>Pendidikan Terakhir</td>
+                        <td>Keterangan</td>
+                    </tr>
+                    <% let no=1; data.forEach(row => { row.seleksi_berkas==2 ? row.seleksi_berkas = 'Lulus Seleksi Berkas' : row.seleksi_berkas='-' %>
+                        <tr>
+                          <td><%= no %></td>
+                          <td>
+                              <div class="text-center">
+                                  <img src="<%= row.foto %>" height="130px" width="100px" alt="Foto" />
+                              </div>
+                          </td>
+                          <td><%= row.nama_lengkap %></td>
+                          <td><%= row.tempat_lahir+", "+ row.tgl_lahir.split('-').reverse().join('-') %></td>
+                          <td><%= row.alamat %></td>
+                          <td><%= row.telepon %></td>
+                          <td><%= row.pendidikan %></td>
+                          <td><%= row.seleksi_berkas %></td>
+                        </tr>
+                        <% no++ }); %>
+                    </table>
+                    <div class="ket">Mengetahui</div>
+                    <div class="ttd"></div>
+                    <div class="nama">Pimpinan</div>
+<% }else if(laporan == 'lulus_seleksi_soal'){ %>
+            <h2 align="center"> Laporan Data Pelamar Lulus Seleksi Soal </h2>
+            <p align="center">Dari tanggal <%= date[0]%> sampai tanggal <%= date[1] %> </p>
+                <table align="center" border="1">
+                            <tr> 
+                                <td>No</td>
+                                <td>Foto</td> 
+                                <td>Nama Lengkap</td>  
+                                <td>TTL</td>
+                                <td>Alamat</td>
+                                <td>Telepon</td>
+                                <td>Pendidikan Terakhir</td>
+                                <td>Keterangan</td>
+                            </tr>
+                            <% let no=1; data.forEach(row => { row.seleksi_soal==2 ? row.seleksi_soal = 'Lulus Seleksi Soal' : row.seleksi_soal='-' %>
+                                <tr>
+                                  <td><%= no %></td>
+                                  <td>
+                                      <div class="text-center">
+                                          <img src="<%= row.foto %>" height="130px" width="100px" alt="Foto" />
+                                      </div>
+                                  </td>
+                                  <td><%= row.nama_lengkap %></td>
+                                  <td><%= row.tempat_lahir+", "+ row.tgl_lahir.split('-').reverse().join('-') %></td>
+                                  <td><%= row.alamat %></td>
+                                  <td><%= row.telepon %></td>
+                                  <td><%= row.pendidikan %></td>
+                                  <td><%= row.seleksi_soal %></td>
+                                </tr>
+                                <% no++ }); %>
+                            </table>
+                            <div class="ket">Mengetahui</div>
+                            <div class="ttd"></div>
+                            <div class="nama">Pimpinan</div>
+<% }else if(laporan == 'lulus_seleksi_soal'){ %>
+            <h2 align="center"> Laporan Data Pelamar Lulus Seleksi Soal </h2>
+            <p align="center">Dari tanggal <%= date[0]%> sampai tanggal <%= date[1] %> </p>
+                <table align="center" border="1">
+                            <tr> 
+                                <td>No</td>
+                                <td>Foto</td> 
+                                <td>Nama Lengkap</td>  
+                                <td>TTL</td>
+                                <td>Alamat</td>
+                                <td>Telepon</td>
+                                <td>Pendidikan Terakhir</td>
+                                <td>Keterangan</td>
+                            </tr>
+                            <% let no=1; data.forEach(row => { row.seleksi_soal==2 ? row.seleksi_soal = 'Lulus Seleksi Soal' : row.seleksi_soal='-' %>
+                                <tr>
+                                  <td><%= no %></td>
+                                  <td>
+                                      <div class="text-center">
+                                          <img src="<%= row.foto %>" height="130px" width="100px" alt="Foto" />
+                                      </div>
+                                  </td>
+                                  <td><%= row.nama_lengkap %></td>
+                                  <td><%= row.tempat_lahir+", "+ row.tgl_lahir.split('-').reverse().join('-') %></td>
+                                  <td><%= row.alamat %></td>
+                                  <td><%= row.telepon %></td>
+                                  <td><%= row.pendidikan %></td>
+                                  <td><%= row.seleksi_soal %></td>
+                                </tr>
+                                <% no++ }); %>
+                            </table>
+                            <div class="ket">Mengetahui</div>
+                            <div class="ttd"></div>
+                            <div class="nama">Pimpinan</div
+            <% }else if(laporan == 'lulus_seleksi_wawancara'){ %>
+                            <h2 align="center"> Laporan Data Pelamar Lulus Wawancara </h2>
+                            <p align="center">Dari tanggal <%= date[0]%> sampai tanggal <%= date[1] %> </p>
+                            <table align="center" border="1">
+                                <tr> 
+                                    <td>No</td>
+                                    <td>Foto</td> 
+                                    <td>Nama Lengkap</td>  
+                                    <td>TTL</td>
+                                    <td>Alamat</td>
+                                    <td>Telepon</td>
+                                    <td>Pendidikan Terakhir</td>
+                                    <td>Keterangan</td>
+                                </tr>
+                                <% let no=1; data.forEach(row => { row.seleksi_wawancara==2 ? row.seleksi_wawancara = 'Lulus Seleksi Wawancara' : row.seleksi_wawancara='-' %>
+                                <tr>
+                                    <td><%= no %></td>
+                                    <td>
+                                        <div class="text-center">
+                                            <img src="<%= row.foto %>" height="130px" width="100px" alt="Foto" />
+                                        </div>
+                                    </td>
+                                    <td><%= row.nama_lengkap %></td>
+                                    <td><%= row.tempat_lahir+", "+ row.tgl_lahir.split('-').reverse().join('-') %></td>
+                                    <td><%= row.alamat %></td>
+                                    <td><%= row.telepon %></td>
+                                    <td><%= row.pendidikan %></td>
+                                    <td><%= row.seleksi_wawancara %></td>
+                                </tr>
+                                    <% no++ }); %>
+                                </table>
+                                <div class="ket">Mengetahui</div>
+                                <div class="ttd"></div>
+                                <div class="nama">Pimpinan</div>
+            <% }else if(laporan == 'laporan_data_karyawan'){ %>
+                            <h2 align="center"> Laporan Data Karyawan </h2>
+                            <p align="center">Dari tanggal <%= date[0] %> sampai tanggal <%= date[1] %> </p>
+                            <table align="center" border="1">
+                                <tr> 
+                                    <td>No</td>
+                                    <td>Foto</td> 
+                                    <td>Nama Lengkap</td>  
+                                    <td>TTL</td>
+                                    <td>Alamat</td>
+                                    <td>Telepon</td>
+                                    <td>Pendidikan Terakhir</td>
+                                    <td>Masuk Kerja</td>
+                                    <td>Aktif/ Tidak Aktif</td>
+                                    <td>Status Karyawan</td>
+                                </tr>
+                                <% let no=1; data.forEach(row => { row.status_aktif==1 ? row.status_aktif = 'Aktif' : row.status_aktif = 'Non Aktif'; 
+                                   row.status_karyawan==1 ? row.status_karyawan = 'Kontrak' : row.status_karyawan = 'Tetap';
+                                   let masuk_tgl = JSON.stringify(new Date(row.masuk_kerja)).slice(1, 11).split('-');
+                                   masuk_tgl[2] = +masuk_tgl[2]+1;
+                                %>
+                                <tr>
+                                    <td><%= no %></td>
+                                    <td>
+                                        <div class="text-center">
+                                            <img src="<%= row.biodata[0].foto %>" height="130px" width="100px" alt="Foto" />
+                                        </div>
+                                    </td>
+                                    <td><%= row.biodata[0].nama_lengkap %></td>
+                                    <td><%= row.biodata[0].tempat_lahir+", "+ row.biodata[0].tgl_lahir.split('-').reverse().join('-') %></td>
+                                    <td><%= row.biodata[0].alamat %></td>
+                                    <td><%= row.biodata[0].telepon %></td>
+                                    <td><%= row.biodata[0].pendidikan %></td>
+                                    <td><%= '0'+masuk_tgl.reverse().join('-') %></td>
+                                    <td><%= row.status_aktif %></td>
+                                    <td><%= row.status_karyawan %></td>
+                                </tr>
+                                <% no++ }); %>
+                            </table>
+                            <div class="ket">Mengetahui</div>
+                            <div class="ttd"></div>
+                            <div class="nama">Pimpinan</div>
+            <% }else if(laporan == 'laporan_karyawan_kontrak'){ %>
+                            <h2 align="center"> Laporan Data Karyawan Kontrak</h2>
+                            <table align="center" border="1">
+                                <tr> 
+                                    <td>No</td>
+                                    <td>Foto</td> 
+                                    <td>Nama Lengkap</td>  
+                                    <td>TTL</td>
+                                    <td>Alamat</td>
+                                    <td>Telepon</td>
+                                    <td>Pendidikan Terakhir</td>
+                                    <td>Aktif/ Tidak Aktif</td>
+                                    <td>Status Karyawan</td>
+                                </tr>
+                                <% let no=1; data.forEach(row => { row.status_aktif==1 ? row.status_aktif = 'Aktif' : row.status_aktif = 'Non Aktif'; 
+                                   row.status_karyawan==1 ? row.status_karyawan = 'Kontrak' : row.status_karyawan = 'Tetap';
+                                %>
+                                <tr>
+                                    <td><%= no %></td>
+                                    <td>
+                                        <div class="text-center">
+                                            <img src="<%= row.biodata[0].foto %>" height="130px" width="100px" alt="Foto" />
+                                        </div>
+                                    </td>
+                                    <td><%= row.biodata[0].nama_lengkap %></td>
+                                    <td><%= row.biodata[0].tempat_lahir+", "+ row.biodata[0].tgl_lahir.split('-').reverse().join('-') %></td>
+                                    <td><%= row.biodata[0].alamat %></td>
+                                    <td><%= row.biodata[0].telepon %></td>
+                                    <td><%= row.biodata[0].pendidikan %></td>
+                                    <td><%= row.status_aktif %></td>
+                                    <td><%= row.status_karyawan %></td>
+                                </tr>
+                                <% no++ }); %>
+                            </table>
+                            <div class="ket">Mengetahui</div>
+                            <div class="ttd"></div>
+                            <div class="nama">Pimpinan</div>
+            <% }else if(laporan == 'laporan_karyawan_tetap'){ %>
+                            <h2 align="center"> Laporan Data Karyawan Tetap</h2>
+                            <table align="center" border="1">
+                                <tr> 
+                                    <td>No</td>
+                                    <td>Foto</td> 
+                                    <td>Nama Lengkap</td>  
+                                    <td>TTL</td>
+                                    <td>Alamat</td>
+                                    <td>Telepon</td>
+                                    <td>Pendidikan Terakhir</td>
+                                    <td>Aktif/ Tidak Aktif</td>
+                                    <td>Status Karyawan</td>
+                                </tr>
+                                <% let no=1; data.forEach(row => { row.status_aktif==1 ? row.status_aktif = 'Aktif' : row.status_aktif = 'Non Aktif'; 
+                                   row.status_karyawan==1 ? row.status_karyawan = 'Kontrak' : row.status_karyawan = 'Tetap';
+                                %>
+                                <tr>
+                                    <td><%= no %></td>
+                                    <td>
+                                        <div class="text-center">
+                                            <img src="<%= row.biodata[0].foto %>" height="130px" width="100px" alt="Foto" />
+                                        </div>
+                                    </td>
+                                    <td><%= row.biodata[0].nama_lengkap %></td>
+                                    <td><%= row.biodata[0].tempat_lahir+", "+ row.biodata[0].tgl_lahir.split('-').reverse().join('-') %></td>
+                                    <td><%= row.biodata[0].alamat %></td>
+                                    <td><%= row.biodata[0].telepon %></td>
+                                    <td><%= row.biodata[0].pendidikan %></td>
+                                    <td><%= row.status_aktif %></td>
+                                    <td><%= row.status_karyawan %></td>
+                                </tr>
+                                <% no++ }); %>
+                            </table>
+                            <div class="ket">Mengetahui</div>
+                            <div class="ttd"></div>
+                            <div class="nama">Pimpinan</div>
+            <% }else if(laporan == 'laporan_wawancara'){ %>
+                            <h2 align="center"> Laporan Jadwal dan Hasil Wawancara</h2>
+                            <p align="center">Dari tanggal <%= date[0] %> sampai tanggal <%= date[1] %> </p>
+                            <table align="center" border="1">
+                                <tr> 
+                                    <td>No</td>
+                                    <td>Foto</td> 
+                                    <td>Nama Lengkap</td>  
+                                    <td>Alamat</td>
+                                    <td>Telepon</td>
+                                    <td>Pendidikan Terakhir</td>
+                                    <td>Lokasi Wawancara</td>
+                                    <td>Tgl Wawancara</td>
+                                    <td>Keterangan Hasil Wawancara</td>
+                                    <td>Hasil Wawancara</td>
+                                </tr>
+                                <% let no=1; data.forEach(row => { 
+                                   row.status[0].seleksi_wawancara == 1 ? row.status[0].seleksi_wawancara  = 'Belum Ditentukan' : 
+                                   row.status[0].seleksi_wawancara == 2 ? row.status[0].seleksi_wawancara  = 'Lulus Wawancara' :
+                                   row.status[0].seleksi_wawancara == 3 ? row.status[0].seleksi_wawancara  = 'Tdk Lulus Wawancara' : '';
+                                   let tgl_wawancara = JSON.stringify(row.tgl_wawancara).slice(1,11);
+                                %>
+                                <tr>
+                                    <td><%= no %></td>
+                                    <td>
+                                        <div class="text-center">
+                                            <img src="<%= row.biodata[0].foto %>" height="130px" width="100px" alt="Foto" />
+                                        </div>
+                                    </td>
+                                    <td><%= row.biodata[0].nama_lengkap %></td>
+                                    <td><%= row.biodata[0].alamat %></td>
+                                    <td><%= row.biodata[0].telepon %></td>
+                                    <td><%= row.biodata[0].pendidikan %></td>
+                                    <td><%= row.lokasi %></td>
+                                    <td><%= tgl_wawancara.split('-').reverse().join('-');  %></td>
+                                    <td><%= row.keterangan %></td>
+                                    <td><%= row.status[0].seleksi_wawancara %></td>
+                                </tr>
+                                <% no++ }); %>
+                            </table>
+                            <div class="ket">Mengetahui</div>
+                            <div class="ttd"></div>
+                            <div class="nama">Pimpinan</div>
+            <% } %>
+</body>
+</html>
+<style>
+    .center {
+    display: block;
+    margin-left: 28%;
+    margin-right: auto;
+    width: 70%;
+    }    
+</style>

@@ -1,0 +1,186 @@
+<% if(!cek){ %>
+       <!-- SELECT2 EXAMPLE -->
+        <div class="card card-default">
+          <div class="card-header">
+            <h3 class="card-title"><%= cek == false ? 'Input Biodata' : 'Biodata' %> </h3>
+
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          <!-- /.card-header -->
+            <div class="card-body">
+              <form action="/postBiodata" method="post" enctype="multipart/form-data">
+              <div class="row">
+                  <div class="col-md-6">
+                      <label>Nama Lengkap : </label>
+                      <input type="text" class="form-control" name="nama_lengkap" id="">
+                      <input type="hidden" name="id_pelamar" value="<%= id_pelamar %>">
+                    <!-- /.form-group -->
+                    <!-- /.form-group -->
+                  </div>
+                  <div class="col-md-6">
+                      <label>Tempat Lahir : </label>
+                      <input type="text" class="form-control" name="tempat_lahir" id="">
+                    <!-- /.form-group -->
+                  </div>
+                  <div class="col-md-6">
+                    <label>Tanggal Lahir : </label>
+                    <input type="date" class="form-control" name="tgl_lahir" id="">
+                  <!-- /.form-group -->
+                  </div>
+                  <div class="col-md-6">
+                    <label>Telepon : </label>
+                    <input type="text" class="form-control" name="telepon" id="">
+                  <!-- /.form-group -->
+                  </div>
+                  <div class="col-md-6">
+                    <label>Alamat : </label>
+                    <textarea name="alamat" id="" class="form-control" cols="30" rows="10"></textarea>
+                  <!-- /.form-group -->
+                  </div>
+                  <div class="col-md-6">
+                    <label>Pendidikan : </label>
+                    <input type="text" class="form-control" name="pendidikan" id="">
+                  <!-- /.form-group -->
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="exampleInputFile">Upload Gambar :</label>
+                      <div class="input-group">
+                        <div class="custom-file">
+                          <input type="file" name="foto" class="custom-file-input" id="exampleInputFile">
+                          <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        </div>
+                        <div class="input-group-append">
+                          <span class="input-group-text">Upload</span>
+                        </div>
+                      </div>
+                  </div>
+                  
+                  <button type="submit" class="btn btn-primary btn-block" style="margin-top:15px;" >Kirim Biodata</button>
+              </div>
+            </form>
+              <!-- /.row -->
+            </div>
+          <!-- /.card-body -->
+          <div class="card-footer">
+          </div>
+        </div>
+        <% }else{ %>
+          <div class="container-fluid">
+            <div class="row">
+              
+              <div class="col-md-3">
+
+                <!-- Profile Image -->
+                <div class="card card-primary card-outline">
+                  <div class="card-body box-profile">
+                    <div class="text-center">
+                        <img class="profile-user-img img-fluid img-circle" src="<%= data[0].foto %>" height="100px" width="100px" alt="Foto">
+                    </div>
+
+                    <!-- <h3 class="profile-username text-center">Nina Mcintire</h3> -->
+
+                    <p class="text-muted text-center"></p>
+
+                    <ul class="list-group list-group-unbordered mb-3">
+                      <li class="list-group-item">
+                        <b>Nama :</b> <a class="float-right"><%= data[0].nama_lengkap %></a>
+                      </li>
+                      <li class="list-group-item">
+                        <b>Alamat :</b> <a class="float-right"><%= data[0].alamat %>n</a>
+                      </li>
+                      <li class="list-group-item">
+                      <b>No Handphone :</b> <a class="float-right"><%= data[0].telepon %></a>
+                      </li>
+                    </ul>
+
+                      <a href="/proses_rekrutmen" class="btn btn-success btn-block"><b>Cek Proses Rekrutmen</b></a>
+                    </div>
+                  <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+              </div>
+
+              <div class="col-md-8">
+                <div class="card card-primary card-outline">
+                  <div class="card-body">
+                    <% if(data[0].berkas.length == 0 ){ %>
+                      <div class="float-right">
+                              <a href="/uploadBerkas"><button class="btn btn-primary text-center"  ><i class="fa fa-file-pdf"></i> Upload Berkas
+                        </button></a>
+                      </div>
+                  <% } %>
+                  <% if(data[0].berkas.length !== 0 ){ %>
+                    <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                          <th style="width: 10px">#</th>
+                          <th>Surat Lamaran</th>
+                          <th>Ijazah</th>
+                          <th>KTP</th>
+                          <th>Lampiran</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% data[0].berkas.forEach(berkas => { %>
+                          <tr>
+                            <td>1.</td>
+                            <td>
+                             <% let surat_lamaran=""; if(berkas.surat_lamaran){ surat_lamaran="/images/file.png" }else{ surat_lamaran="/images/no_data.png" } %>
+                              <div class="text-center">
+                                <a href="/admin/Berkaslamaran/<%= berkas.id_pelamar %>/suratLamaran">
+                                  <img class="profile-user-img img-fluid img-circle" src="<%= surat_lamaran %>" height="100px" width="100px" alt="Foto"></a>
+                                  <br> 
+                                <%= berkas.surat_lamaran.length !== 0 ? 'Sudah Upload' : 'Belum Upload' %>
+                              </div>
+                          </td>
+                            <td>
+                              <% let ijazah=""; if(berkas.ijazah){ ijazah="/images/file.png" }else{ ijazah="/images/no_data.png" } %>
+                              <div class="text-center">
+                                <a href="/admin/Berkaslamaran/<%= berkas.id_pelamar %>/ijazah">
+                                    <img class="profile-user-img img-fluid img-circle" src="<%= ijazah %>" height="100px" width="100px" alt="Foto">
+                                  </a>
+                                  <br>
+                                <%= berkas.ijazah.length !== 0 ? 'Sudah Upload' : 'Belum Upload' %>
+                              </div>
+                            </td>
+                            <td>
+                              <% let ktp=""; if(berkas.ktp){ ktp="/images/file.png" }else{ ktp="/images/no_data.png" } %>
+                              <div class="text-center">
+                                <a href="/admin/Berkaslamaran/<%= berkas.id_pelamar %>/ktp">
+                                <img class="profile-user-img img-fluid img-circle" src="<%= ktp %>" height="100px" width="100px" alt="Foto"></a>
+                                <br>
+                                <%= berkas.ktp.length !== 0 ? 'Sudah Upload' : 'Belum Upload' %>
+                              </div>
+                              </div>
+                            </td>
+                            <td>
+                              <% let lampiran=""; if(berkas.lampiran){ lampiran="/images/file.png" }else{ lampiran="/images/no_data.png" } %>
+                              <div class="text-center">
+                                <a href="/admin/Berkaslamaran/<%= berkas.id_pelamar %>/lampiran">
+                                <img class="profile-user-img img-fluid img-circle" src="<%= lampiran %>" height="100px" width="100px" alt="Foto"></a>
+                                <br>
+                                <%= berkas.lampiran.length !== 0 ? 'Sudah Upload' : 'Belum Upload' %>
+                              </div>
+                              </div>
+                            </td>
+                          </tr>
+                        <%  }); %>
+                      </tbody>
+                  </table>
+                  <% } %>
+                </div>
+              </div>
+              </div>
+
+            </div>
+          </div>
+        <% } %>
+        <!-- /.card -->

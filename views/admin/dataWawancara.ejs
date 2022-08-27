@@ -1,0 +1,51 @@
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Data Pelamar Lulus Berkas dan Seleksi Soal</h3>
+            
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th style="width: 10px">#</th>
+                <th>Foto</th>
+                <th>Nama Lengkap</th>
+                <th>Alamat</th>
+                <th>Telepon</th>
+                <th>Pendidikan Terakhir</th>
+                <th>Tgl Wawancara</th>
+                <th>Lokasi Wawancara</th>
+                <th>Status Wawancara</th>
+            </tr>
+            </thead>
+            <tbody>
+                <% let no=1; data.forEach(row => { %>
+                    <tr>
+                        <td><%= no %></td>
+                        <td>
+                            <div class="text-center">
+                                <img src="<%= row.biodata[0].foto %>" height="80px" alt="Foto" />
+                            </div>
+                        </td>
+                        
+                        <td><%= row.biodata[0].nama_lengkap %></td>
+                        <td><%= row.biodata[0].alamat %></td>
+                        <td><%= row.biodata[0].telepon %></td>
+                        <td><%= row.biodata[0].pendidikan %></td>
+                        <td><%= row.tgl_wawancara.toISOString().slice(0,10).split('-').reverse().join('-') %></td>
+                        <td><%= row.lokasi %></td>
+                        <td>
+                            <% if(row.seleksi[0].seleksi_wawancara == 1){ %>
+                                <a href="/admin/input_ket_wawancara/<%= row.id_pelamar %>"><button type="button" class="btn btn-warning">Belum Ditentukan</button></a> 
+                            <% }else if(row.seleksi[0].seleksi_wawancara == 2){ %> 
+                                <button type="button" class="btn btn-success">Lulus Wawancara</button> 
+                            <% }else if(row.seleksi[0].seleksi_wawancara == 3){ %> 
+                                <button type="button" class="btn btn-danger">Tdk Lulus Wawancara</button> 
+                            <% } %>
+                            
+                        </td>
+                    </tr>
+                    <% no++ }); %>
+                    </tbody>
+                </table>
+    </div>
+</div>

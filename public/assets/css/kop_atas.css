@@ -1,0 +1,10 @@
+ 		#kop{
+
+ 			margin: 50px 0 20px 0;
+ 			text-align: center;
+ 		}
+ 		.garis-kop{
+ 			border: 2px solid black;
+ 			width: 80%;
+ 			margin-left: 10%;
+ 		}

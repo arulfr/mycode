@@ -1,0 +1,60 @@
+       <!-- SELECT2 EXAMPLE -->
+       <div class="card card-default">
+        <div class="card-header">
+          <h3 class="card-title">Input Soal Seleksi</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <!-- /.card-header -->
+          <div class="card-body">
+            <form action="/admin/postSoal" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Soal : </label>
+                    <textarea class="form-control" name="soal" id=""></textarea>
+                  <!-- /.form-group -->
+                  <!-- /.form-group -->
+                </div>
+                <div class="col-md-6">
+                  <label for="exampleInputFile">Gambar Soal :</label>
+                  <div class="custom-file">
+                      <input type="file" name="gambar" class="berkas custom-file-input" id="customFile">
+                      <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                  <label>Pil A : </label>
+                  <input type="text" class="form-control" name="pil_a" id="">
+                </div>
+                <div class="col-md-6">
+                  <label>Pil B : </label>
+                  <input type="text" class="form-control" name="pil_b" id="">
+                </div>
+                <div class="col-md-6">
+                  <label>Pil C : </label>
+                  <input type="text" class="form-control" name="pil_c" id="">
+                </div>
+                <div class="col-md-6">
+                  <label>Pil D : </label>
+                  <input type="text" class="form-control" name="pil_d" id="">
+                </div>
+                <div class="col-md-6">
+                  <label>Kunci : </label>
+                  <input type="text" class="form-control" name="kunci" id="">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" style="margin-top:15px;" >Tambahkan Soal Seleksi</button>
+            </div>
+          </form>
+            <!-- /.row -->
+          </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+        </div>
+      </div>

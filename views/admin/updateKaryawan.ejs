@@ -1,0 +1,86 @@
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Update Data Karyawan</h3>
+    </div>
+    <div class="card-body">
+        <form action="/admin/updateKaryawan" method="post">
+            <div class="row inputKaryawan" style="margin-bottom:10px;">
+                 <div class="col-6" style="display: inline-block;">
+                    <label>Aktif / Tidak AKtif : </label>
+                    <select class="form-control" name="status_aktif">
+                        <option value="<%= data[0].status_aktif %>">-------Pilih Status--------------</option>
+                        <option value="1">Aktif</option>
+                        <option value="2">Tdk Aktif</option>
+                    </select>
+                 </div>
+                 <div class="col-6">
+                    <label>Status Calon Karyawan : </label>
+                     <select class="form-control" name="status_karyawan" id="selected">
+                         <option value="<%= data[0].status_karyawan %>">-------Pilih Status--------------</option>
+                         <option value="1">Kontrak</option>
+                         <option value="2">Tetap</option>
+                     </select>
+                 </div>
+            </div>
+                <div class="row" style="margin-bottom:10px;">
+                    <div class="col-6 ">
+                        <label>Nama Lengkap : </label>
+                        <input type="text" class="form-control" name="nama_lengkap" value="<%= data[0].biodata[0].nama_lengkap %>" placeholder="Nama Lengkap">
+                        <input type="hidden" class="form-control" name="id_karyawan" value="<%= data[0].id_karyawan %>"/>
+                        <input type="hidden" class="form-control" name="id_biodata" value="<%= data[0].id_biodata %>"/>
+                    </div>
+                    <div class="col-6">
+                        <label>Alamat : </label>
+                        <input type="text" class="form-control" name="alamat" value="<%= data[0].biodata[0].alamat %>" placeholder="Nama Lengkap">
+                    </div>
+                 </div>
+                 <div class="row" style="margin-bottom:10px;">
+                    <div class="col-6">
+                        <label>Pendidikan Terakhir : </label>
+                        <input type="text" class="form-control" name="pendidikan" value="<%= data[0].biodata[0].pendidikan %>" placeholder="Pendidikan Terakhir">
+                    </div>
+                    <div class="col-6">
+                        <label>Telepon : </label>
+                        <input type="text" class="form-control" name="telepon" value="<%= data[0].biodata[0].telepon %>" placeholder="Telepon">
+                    </div>
+                 </div>
+                 <% if(data[0].status_karyawan == 1){ %>
+                 <div class="row" style="margin-bottom:10px;">
+                    <div class="col-6 kontrakForm hidden">
+                        <label>Perbaharui Tgl Awal Kontrak : </label>
+                        <input type="date" class="form-control" name="tgl_awal" value="<%= data[0].tgl_awal %>" placeholder="Tanggal Awal">
+                    </div>
+                    <div class="col-6 kontrakForm hidden">
+                        <label>Perbaharui Tgl Akhir Kontrak : </label>
+                        <input type="date" class="form-control" name="tgl_akhir" value="<%= data[0].tgl_akhir %>" placeholder="Tanggal Akhir">
+                    </div>
+                 </div>
+                 <% } %>
+                 <div class="row" style="margin-bottom:10px;">
+                    <div class="col-6">
+                        <button type="submit" class="btn btn-primary" ><i class="fa fa-send"></i>Update Data Karyawan</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    
+</div>
+<script>
+    document.querySelector('#selected').addEventListener('change',function(){
+        if(this.value == 1){
+            document.querySelectorAll('.kontrakForm').forEach(function(index){
+                index.classList.remove('hidden');
+            })
+        }else{
+            document.querySelectorAll('.kontrakForm').forEach(function(index){
+                index.classList.add('hidden');
+            })
+        }
+    })
+</script>
+<style>
+    .hidden{
+        display: none;
+    }
+</style>
+

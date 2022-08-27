@@ -1,0 +1,240 @@
+<% if(getPage === 'data_pelamar' ){ %>
+       <!-- SELECT2 EXAMPLE -->
+
+        <div class="col-md-6">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Proses Laporan Data Pelamar</h3>
+              </div>
+              <div class="card-body">
+             <form action="/admin/laporan" id="formUpload" method="post" enctype="multipart/form-data">
+
+                <!-- /.form group -->
+                <div class="form-group">
+                  <label>Dari tanggal - Sampai Tanggal:</label>
+
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="far fa-calendar-alt"></i>
+                      </span>
+                    </div>
+                    <input type="text" name="tanggal" class="form-control float-right" id="reservation">
+                  </div>
+                  <input type="hidden" name="laporan" value="<%= getPage %>" class="form-control">
+                  <!-- /.input group -->
+                </div>
+                <button type="submit" class="submitButton btn btn-primary btn-block" style="margin-top:15px;">Submit</button>
+                <!-- /.form group -->
+                </form>
+            </div>
+              <!-- /.card-body -->
+        </div>
+            <!-- /.card -->
+<% }else if(getPage == 'lulus_seleksi_berkas' ){ %>
+              <!-- SELECT2 EXAMPLE -->
+       
+               <div class="col-md-6">
+                   <div class="card card-primary">
+                     <div class="card-header">
+                       <h3 class="card-title">Proses Laporan Lulus Seleksi Bekas</h3>
+                     </div>
+                     <div class="card-body">
+                    <form action="/admin/laporan" id="formUpload" method="post" enctype="multipart/form-data">
+       
+                       <!-- /.form group -->
+                       <div class="form-group">
+                         <label>Dari tanggal - Sampai Tanggal:</label>
+       
+                         <div class="input-group">
+                           <div class="input-group-prepend">
+                             <span class="input-group-text">
+                               <i class="far fa-calendar-alt"></i>
+                             </span>
+                           </div>
+                           <input type="text" name="tanggal" class="form-control float-right" id="reservation">
+                         </div>
+                         <input type="hidden" name="laporan" value="<%= getPage %>" class="form-control">
+                         <!-- /.input group -->
+                       </div>
+                       <button type="submit" class="submitButton btn btn-primary btn-block" style="margin-top:15px;">Submit</button>
+                       <!-- /.form group -->
+                       </form>
+                   </div>
+                     <!-- /.card-body -->
+               </div>
+                   <!-- /.card -->
+<% }else if(getPage == 'lulus_seleksi_soal' ){ %>
+                    <!-- SELECT2 EXAMPLE -->
+             
+                     <div class="col-md-6">
+                         <div class="card card-primary">
+                           <div class="card-header">
+                             <h3 class="card-title">Proses Laporan Lulus Seleksi Soal</h3>
+                           </div>
+                           <div class="card-body">
+                          <form action="/admin/laporan" id="formUpload" method="post" enctype="multipart/form-data">
+             
+                             <!-- /.form group -->
+                             <div class="form-group">
+                               <label>Dari tanggal - Sampai Tanggal:</label>
+             
+                               <div class="input-group">
+                                 <div class="input-group-prepend">
+                                   <span class="input-group-text">
+                                     <i class="far fa-calendar-alt"></i>
+                                   </span>
+                                 </div>
+                                 <input type="text" name="tanggal" class="form-control float-right" id="reservation">
+                               </div>
+                               <input type="hidden" name="laporan" value="<%= getPage %>" class="form-control">
+                               <!-- /.input group -->
+                             </div>
+                             <button type="submit" class="submitButton btn btn-primary btn-block" style="margin-top:15px;">Submit</button>
+                             <!-- /.form group -->
+                             </form>
+                         </div>
+                           <!-- /.card-body -->
+                     </div>
+                         <!-- /.card -->
+                  <% }else if(getPage == 'lulus_seleksi_wawancara'){ %>
+                          <!-- SELECT2 EXAMPLE -->
+                           <div class="col-md-6">
+                               <div class="card card-primary">
+                                 <div class="card-header">
+                                   <h3 class="card-title">Proses Laporan Lulus Seleksi Wawancara</h3>
+                                 </div>
+                                 <div class="card-body">
+                                <form action="/admin/laporan" id="formUpload" method="post" enctype="multipart/form-data">
+                   
+                                   <!-- /.form group -->
+                                   <div class="form-group">
+                                     <label>Dari tanggal - Sampai Tanggal:</label>
+                   
+                                     <div class="input-group">
+                                       <div class="input-group-prepend">
+                                         <span class="input-group-text">
+                                           <i class="far fa-calendar-alt"></i>
+                                         </span>
+                                       </div>
+                                       <input type="text" name="tanggal" class="form-control float-right" id="reservation">
+                                     </div>
+                                     <input type="hidden" name="laporan" value="<%= getPage %>" class="form-control">
+                                     <!-- /.input group -->
+                                   </div>
+                                   <button type="submit" class="submitButton btn btn-primary btn-block" style="margin-top:15px;">Submit</button>
+                                   <!-- /.form group -->
+                                   </form>
+                               </div>
+                                 <!-- /.card-body -->
+                           </div>
+                               <!-- /.card -->
+                  <% }else if(getPage == 'laporan_data_karyawan'){ %>
+                                <!-- SELECT2 EXAMPLE -->
+                                 <div class="col-md-6">
+                                     <div class="card card-primary">
+                                       <div class="card-header">
+                                         <h3 class="card-title">Proses Laporan Data Karyawan</h3>
+                                       </div>
+                                       <div class="card-body">
+                                      <form action="/admin/laporan" id="formUpload" method="post" enctype="multipart/form-data">
+                         
+                                         <!-- /.form group -->
+                                         <div class="form-group">
+                                           <label>Dari tanggal - Sampai Tanggal:</label>
+                         
+                                           <div class="input-group">
+                                             <div class="input-group-prepend">
+                                               <span class="input-group-text">
+                                                 <i class="far fa-calendar-alt"></i>
+                                               </span>
+                                             </div>
+                                             <input type="text" name="tanggal" class="form-control float-right" id="reservation">
+                                           </div>
+                                           <input type="hidden" name="laporan" value="<%= getPage %>" class="form-control">
+                                           <!-- /.input group -->
+                                         </div>
+                                         <button type="submit" class="submitButton btn btn-primary btn-block" style="margin-top:15px;">Submit</button>
+                                         <!-- /.form group -->
+                                         </form>
+                                     </div>
+                                       <!-- /.card-body -->
+                                 </div>
+                                     <!-- /.card -->
+                    <% }else if(getPage == 'laporan_karyawan_kontrak'){ %>
+                                      <!-- SELECT2 EXAMPLE -->
+                                       <div class="col-md-6">
+                                           <div class="card card-primary">
+                                             <div class="card-header">
+                                               <h3 class="card-title">Proses Laporan Karyawan Kontrak</h3>
+                                             </div>
+                                             <div class="card-body">
+                                            <form action="/admin/laporan" id="formUpload" method="post" enctype="multipart/form-data">
+                               
+                                               <!-- /.form group -->
+                                               <div class="form-group">
+                                                 <input type="hidden" name="laporan" value="<%= getPage %>" class="form-control">
+                                                 <!-- /.input group -->
+                                               </div>
+                                               <button type="submit" class="submitButton btn btn-primary btn-block" style="margin-top:15px;">Submit</button>
+                                               <!-- /.form group -->
+                                               </form>
+                                           </div>
+                                             <!-- /.card-body -->
+                                       </div>
+                                           <!-- /.card -->
+                      <% }else if(getPage == 'laporan_karyawan_tetap'){ %>
+                                            <!-- SELECT2 EXAMPLE -->
+                                             <div class="col-md-6">
+                                                 <div class="card card-primary">
+                                                   <div class="card-header">
+                                                     <h3 class="card-title">Proses Laporan Karyawan Tetap</h3>
+                                                   </div>
+                                                   <div class="card-body">
+                                                  <form action="/admin/laporan" id="formUpload" method="post" enctype="multipart/form-data">
+                                     
+                                                     <!-- /.form group -->
+                                                     <div class="form-group">
+                                                       <input type="hidden" name="laporan" value="<%= getPage %>" class="form-control">
+                                                       <!-- /.input group -->
+                                                     </div>
+                                                     <button type="submit" class="submitButton btn btn-primary btn-block" style="margin-top:15px;">Submit</button>
+                                                     <!-- /.form group -->
+                                                     </form>
+                                                 </div>
+                                                   <!-- /.card-body -->
+                                             </div>
+                                                 <!-- /.card -->
+                            <% }else if(getPage == 'laporan_wawancara'){ %>
+                                                  <!-- SELECT2 EXAMPLE -->
+                                                   <div class="col-md-6">
+                                                       <div class="card card-primary">
+                                                         <div class="card-header">
+                                                           <h3 class="card-title">Proses Laporan Wawancara</h3>
+                                                         </div>
+                                                         <div class="card-body">
+                                                        <form action="/admin/laporan" id="formUpload" method="post" enctype="multipart/form-data">
+                                           
+                                                           <!-- /.form group -->
+                                                           <div class="form-group">
+                                                             <label>Dari tanggal - Sampai Tanggal:</label>
+                                           
+                                                             <div class="input-group">
+                                                               <div class="input-group-prepend">
+                                                                 <span class="input-group-text">
+                                                                   <i class="far fa-calendar-alt"></i>
+                                                                 </span>
+                                                               </div>
+                                                               <input type="text" name="tanggal" class="form-control float-right" id="reservation">
+                                                             </div>
+                                                             <input type="hidden" name="laporan" value="<%= getPage %>" class="form-control">
+                                                             <!-- /.input group -->
+                                                           </div>
+                                                           <button type="submit" class="submitButton btn btn-primary btn-block" style="margin-top:15px;">Submit</button>
+                                                           <!-- /.form group -->
+                                                           </form>
+                                                       </div>
+                                                         <!-- /.card-body -->
+                                                   </div>
+                                                       <!-- /.card -->
+            <% } %>
